@@ -1,0 +1,14 @@
+tensorflow==2.12.0
+numpy
+pandas
+opencv-python
+Pillow
+scikit-learn
+matplotlib
+seaborn
+joblib
+streamlit
+kaggle
+tqdm
+requests
+protobuf==3.20.3

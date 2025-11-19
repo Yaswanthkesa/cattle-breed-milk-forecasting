@@ -1,0 +1,47 @@
+# -------------------------
+# Python
+# -------------------------
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter
+.ipynb_checkpoints/
+*.ipynb_checkpoints
+
+# Virtual Environments
+venv/
+env/
+*.env
+
+# Operating System Files
+.DS_Store
+Thumbs.db
+
+# Editor Folders
+.vscode/
+.idea/
+
+# Large Data (Do NOT upload full dataset)
+data/full_dataset/
+Indian_bovine_breeds/
+*.zip
+
+# Models (store externally in Google Drive)
+models/
+*.h5
+*.hdf5
+*.pt
+*.pth
+*.ckpt
+*.pickle
+*.pkl
+
+# Logs and miscellaneous
+*.log
+*.tmp
+*.bak
+*.swp
+
+# Streamlit cache
+.streamlit/
