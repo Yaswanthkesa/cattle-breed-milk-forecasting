@@ -73,16 +73,29 @@ else:
         st.sidebar.error(f"Auto-load failed: {e}")
         model = None
 
-# optional label encoder upload
+# ---------- Default Label Encoder ----------
+DEFAULT_ENCODER_PATH = "streamlit_app/label_encoder.joblib"
+
 le = None
-if st.sidebar.checkbox("Upload label encoder (.joblib)"):
+
+# 1) Auto-load default encoder if it exists
+if os.path.exists(DEFAULT_ENCODER_PATH):
+    try:
+        le = joblib.load(DEFAULT_ENCODER_PATH)
+        st.sidebar.success(f"Default encoder loaded from: {DEFAULT_ENCODER_PATH}")
+    except Exception as e:
+        st.sidebar.error(f"Failed to load default encoder: {e}")
+        le = None
+
+# 2) Optional: allow user to upload a different encoder (overrides default)
+if st.sidebar.checkbox("Upload a different label encoder (.joblib)"):
     le_file = st.sidebar.file_uploader("label_encoder.joblib", type=["joblib"])
     if le_file is not None:
         try:
             le = joblib.load(le_file)
-            st.sidebar.success("Encoder loaded")
+            st.sidebar.success("Uploaded encoder loaded")
         except Exception as e:
-            st.sidebar.error(f"Failed to load encoder: {e}")
+            st.sidebar.error(f"Failed to load uploaded encoder: {e}")
             le = None
 
 st.sidebar.markdown("---")
